@@ -62,5 +62,6 @@ for i in inp_list:
 
 if len(operand_stack) != 1:
     print "Invalid input, not enough opearators"
+    sys.exit()
 
 print operand_stack[0]
