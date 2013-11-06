@@ -2,7 +2,7 @@ import sys
 
 def isNumeric(x):
     try:
-        int(x)
+        float(x)
         return True
     except:
         return False
