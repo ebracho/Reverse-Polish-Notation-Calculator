@@ -1,6 +1,6 @@
 import sys
 
-def isNumeric(x):
+def is_numeric(x):
     try:
         float(x)
         return True
@@ -17,7 +17,7 @@ inp_list = inp.split(' ')
 
 for i in inp_list:
 
-    if isNumeric(i):
+    if is_numeric(i):
         operand_stack.append(float(i))
 
     elif i == '+':
