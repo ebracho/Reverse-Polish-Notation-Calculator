@@ -33,7 +33,7 @@ for i in inp_list:
         else:
             right = operand_stack.pop()
             left = operand_stack.pop()
-            operand_stack.append(map(ops[i], [left], [right])[0])
+            operand_stack.append(ops[i](left, right))
 
     else:
         print "Error: %s is not a valid argument." % i
