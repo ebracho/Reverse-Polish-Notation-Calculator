@@ -29,7 +29,7 @@ for i in inp_list:
                 operand_stack.append(ops[i](left, right))
 
         else:
-            print "Error: %s is not a valid argument." % i
+            print "Error: %r is not a valid argument." % i
             exit()
 
 if len(operand_stack) != 1:
