@@ -7,9 +7,18 @@ def is_numeric(x):
     except:
         return False
 
-def operand_err():
-    print "Too many operands"
-    sys.exit()
+def apply_operand(left, right, op):
+
+    if op == '+':
+        return left + right
+    if op == '-':
+        return left - right
+    if op == '*':
+        return left * right
+    if op == '/':
+        return left / right
+    if op == '^':
+        return left ** right
 
 operand_stack = []
 inp = raw_input("> ")
@@ -20,48 +29,23 @@ for i in inp_list:
     if is_numeric(i):
         operand_stack.append(float(i))
 
-    elif i == '+':
-        if len(operand_stack) == 0: operand_err()
-        right_operand = operand_stack.pop()
-        if len(operand_stack) == 0: operand_error()
-        left_operand = operand_stack.pop()
-        operand_stack.append(left_operand + right_operand)
+    elif i == '+' or '-' or '*' or '/' or '^':
 
-    elif i == '-':
-        if len(operand_stack) == 0: operand_err()
-        right_operand = operand_stack.pop()
-        if len(operand_stack) == 0: operand_err()
-        left_operand = operand_stack.pop()
-        operand_stack.append(left_operand - right_operand)
+        if len(operand_stack) < 2: 
+            print "Error: Too many operands."
+            exit()   
 
-    elif i == '*':
-        if len(operand_stack) == 0: operand_err()
-        right_operand = operand_stack.pop()
-        if len(operand_stack) == 0: operand_err()
-        left_operand = operand_stack.pop()
-        operand_stack.append(left_operand * right_operand)
-
-    elif i == '/':
-        if len(operand_stack) == 0: operand_err()
-        right_operand = operand_stack.pop()
-        if len(operand_stack) == 0: operand_err()
-        left_operand = operand_stack.pop()
-        operand_stack.append(left_operand / right_operand)
-
-    elif i == '^':
-        if len(operand_stack) == 0: operand_err()
-        right_operand = operand_stack.pop()
-        if len(operand_stack) == 0: operand_err()
-        left_operand = operand_stack.pop()
-        operand_stack.push(left_operand ** right_operand)
+        else:
+            right = operand_stack.pop()
+            left = operand_stack.pop()
+            operand_stack.append(apply_operand(left, right, i)
 
     else:
-        print "Invalid input."
+        print "Error: %s is not a valid argument." % i
         exit()
 
-
 if len(operand_stack) != 1:
-    print "Invalid input, not enough opearators"
+    print "Error: not enough opearators"
     sys.exit()
 
 print operand_stack[0]
