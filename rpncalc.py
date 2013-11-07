@@ -20,7 +20,7 @@ for i in inp_list:
         if i in {'+', '-', '*','/','^'}:
 
             if len(operand_stack) < 2: 
-                print "Error: Not enough operands."
+                print "Error: Too many operators."
                 exit()   
 
             else:
@@ -33,7 +33,7 @@ for i in inp_list:
             exit()
 
 if len(operand_stack) != 1:
-    print "Error: not enough operators"
+    print "Error: Not enough operators"
     sys.exit()
 
 print operand_stack[0]
