@@ -30,7 +30,7 @@ for i in inp_list:
     if is_numeric(i):
         operand_stack.append(float(i))
 
-    elif i == ('+' or '-' or '*' or '/' or '^'):
+    elif i == '+' or i == '-' or i == '*' or i == '/' or  == '^':
 
         if len(operand_stack) < 2: 
             print "Error: Not enough operands."
