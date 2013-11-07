@@ -33,6 +33,6 @@ for i in inp_list:
 
 if len(operand_stack) != 1:
     print "Error: Not enough operators"
-    sys.exit()
+    exit()
 
 print operand_stack[0]
