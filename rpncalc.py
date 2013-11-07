@@ -2,8 +2,7 @@ import sys
 import operator
 
 operand_stack = []
-inp = raw_input("> ")
-inp_list = inp.split(' ')
+inp_list = raw_input("> ").split(' ')
 
 ops = {'+': operator.add,
        '-': operator.sub,
