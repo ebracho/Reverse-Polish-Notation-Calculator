@@ -1,4 +1,5 @@
 import sys
+import operator
 
 def is_numeric(x):
 
@@ -8,29 +9,22 @@ def is_numeric(x):
     except:
         return False
 
-def apply_operator(left, right, op):
-
-    if op == '+':
-        return left + right
-    if op == '-':
-        return left - right
-    if op == '*':
-        return left * right
-    if op == '/':
-        return left / right
-    if op == '^':
-        return left ** right
-
 operand_stack = []
 inp = raw_input("> ")
 inp_list = inp.split(' ')
+
+ops = {'+': operator.add,
+       '-': operator.sub,
+       '*': operator.mul,
+       '/': operator.div,
+       '^': pow}
 
 for i in inp_list:
 
     if is_numeric(i):
         operand_stack.append(float(i))
 
-    elif i == '+' or i == '-' or i == '*' or i == '/' or  == '^':
+    elif i in {'+', '-', '*','/','^'}:
 
         if len(operand_stack) < 2: 
             print "Error: Not enough operands."
@@ -39,7 +33,7 @@ for i in inp_list:
         else:
             right = operand_stack.pop()
             left = operand_stack.pop()
-            operand_stack.append(apply_operator(left, right, i))
+            operand_stack.append(map(ops[i], [left], [right])[0])
 
     else:
         print "Error: %s is not a valid argument." % i
