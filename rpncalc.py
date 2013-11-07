@@ -1,13 +1,14 @@
 import sys
 
 def is_numeric(x):
+
     try:
         float(x)
         return True
     except:
         return False
 
-def apply_operand(left, right, op):
+def apply_operator(left, right, op):
 
     if op == '+':
         return left + right
@@ -32,20 +33,20 @@ for i in inp_list:
     elif i == '+' or '-' or '*' or '/' or '^':
 
         if len(operand_stack) < 2: 
-            print "Error: Too many operands."
+            print "Error: Not enough operands."
             exit()   
 
         else:
             right = operand_stack.pop()
             left = operand_stack.pop()
-            operand_stack.append(apply_operand(left, right, i))
+            operand_stack.append(apply_operator(left, right, i))
 
     else:
         print "Error: %s is not a valid argument." % i
         exit()
 
 if len(operand_stack) != 1:
-    print "Error: not enough opearators"
+    print "Error: not enough operators"
     sys.exit()
 
 print operand_stack[0]
