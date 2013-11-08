@@ -14,7 +14,7 @@ for i in inp_list:
 
     try: operand_stack.append(float(i))
 
-    except: 
+    except ValueError: 
         if i in ops:
             if len(operand_stack) < 2: 
                 print "Error: Too many operators."
