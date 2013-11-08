@@ -15,9 +15,7 @@ for i in inp_list:
     try: operand_stack.append(float(i))
 
     except: 
-
         if i in ops:
-
             if len(operand_stack) < 2: 
                 print "Error: Too many operators."
                 exit()   
@@ -26,11 +24,9 @@ for i in inp_list:
                 right = operand_stack.pop()
                 left = operand_stack.pop()
                 operand_stack.append(ops[i](left, right))
-
         else:
             print "Error: %r is not a valid argument." % i
             exit()
-
 if len(operand_stack) != 1:
     print "Error: Not enough operators"
     exit()
