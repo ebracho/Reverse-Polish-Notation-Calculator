@@ -19,7 +19,6 @@ for i in inp_list:
             if len(operand_stack) < 2: 
                 print "Error: Too many operators."
                 exit()   
-
             else:
                 right = operand_stack.pop()
                 left = operand_stack.pop()
