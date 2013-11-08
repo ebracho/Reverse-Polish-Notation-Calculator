@@ -1,7 +1,7 @@
 import sys
 import operator
 
-print "Reverse Polish Notation Calculator. Type 'quit' to exit."
+print "Reverse Polish Notation Calculator. Type 'quit' or 'clear'"
 
 ops = {'+': operator.add,
        '-': operator.sub,
@@ -24,6 +24,8 @@ def calculate(inp_list, operand_stack):
                     right = operand_stack.pop()
                     left = operand_stack.pop()
                     operand_stack.append(ops[i](left, right))
+            elif i == 'clear':
+                return ['reset']
             elif i == '':
                 return operand_stack
             elif i == 'quit':
