@@ -56,4 +56,4 @@ while(True):
         continue
         
 
-    else :prompt = str(operand_stack[0]) + ' '
+    else: prompt = str(operand_stack[0]) + ' '
